@@ -1,0 +1,33 @@
+{
+  "name": "RedThreadChild",
+  "version": "1.0.0",
+  "description": "This is a developer-friendly starter child theme for the [Genesis theming framework](http://my.studiopress.com/themes/genesis/) which includes a modular architecture, Sass, gulp, Bourbon, Neat, and Composer.",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "redthreadollie",
+  "license": "GPL-2",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "bourbon": "^4.3.0",
+    "bourbon-neat": "^1.7.2",
+    "css-mqpacker": "^5.0.1",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-lint": "^1.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "neat": "^1.2.2",
+    "node": "0.0.0",
+    "sass-rem": "^1.2.2"
+  }
+}
