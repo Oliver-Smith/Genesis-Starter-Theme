@@ -10,6 +10,10 @@
  * @link    http://www.studiopress.com/
  */
 
+namespace RedThreadCreative\RedThreadChild\Customizer;
+
+use RedThreadCreative\RedThreadChild\Customizer as customizer;
+
 add_filter( 'woocommerce_enqueue_styles', 'woocommerce_styles' );
 /**
  * Enqueue the theme's custom WooCommerce styles to the WooCommerce plugin.
@@ -46,13 +50,15 @@ function woocommerce_css() {
 		return;
 	}
 
-	$color_link = get_theme_mod( __NAMESPACE__ . '\get_default_link_color_for_customizer()' );
-	$color_accent = get_theme_mod( __NAMESPACE__ . '\customizer_get_default_accent_color()' );
+	$prefix = customizer\get_settings_prefix();
+	
+	$color_link = get_theme_mod( $prefix . '_link_color', customizer\get_default_link_color() );
+	$color_accent = get_theme_mod( $prefix . '_accent_color', customizer\get_default_accent_color() )
 
 	$woo_css = '';
 
-	$woo_css .= ( __NAMESPACE__ . '\customizer_get_default_link_color()' !== $color_link ) ? sprintf( '
-
+	$woo_css .= ( customizer\get_default_link_color() !== $color_link ) ? sprintf( '
+	
 		.woocommerce div.product p.price,
 		.woocommerce div.product span.price,
 		.woocommerce div.product .woocommerce-tabs ul.tabs li a:hover,
@@ -69,7 +75,8 @@ function woocommerce_css() {
 
 	', $color_link ) : '';
 
-	$woo_css .= ( __NAMESPACE__ . '\customizer_get_default_accent_color()' !== $color_accent ) ? sprintf( '
+	$woo_css .= ( customizer\get_default_accent_color() !== $color_accent ) ? sprintf( '
+
 		.woocommerce a.button:hover,
 		.woocommerce a.button:focus,
 		.woocommerce a.button.alt:hover,
@@ -107,7 +114,7 @@ function woocommerce_css() {
 			color: %1$s;
 		}
 
-	', $color_accent, '_accent_color' . ( $color_accent ) ) : '';
+	', $color_accent, customizer\calculate_color_contrast( $color_accent ) ) : '';
 
 
 	if ( $woo_css ) {
