@@ -122,3 +122,17 @@ function woocommerce_css() {
 	}
 
 }
+
+/**
+ * Get styles handle for the WooCommerce module.
+ *
+ * @since 1.0.0
+ *
+ * @return string
+ */
+function get_woo_style_handle() {
+	if ( defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ) {
+		return sanitize_title_with_dashes( CHILD_THEME_NAME )  . '-woocommerce-styles';
+	}
+	return 'child-theme-woocomerce-styles';
+}
