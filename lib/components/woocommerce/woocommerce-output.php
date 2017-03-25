@@ -12,7 +12,8 @@
 
 namespace RedThreadCreative\RedThreadChild\Customizer;
 
-use KnowTheCode\Developers\Customizer as customizer;
+use RedThreadCreative\RedThreadChild\Customizer as customizer;
+
 add_filter( 'woocommerce_enqueue_styles', __NAMESPACE__ . '\enqueue_woocommerce_styles' );
 /**
  * Enqueue the theme's custom WooCommerce styles to the WooCommerce plugin.
